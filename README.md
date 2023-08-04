@@ -13,7 +13,10 @@ To change the Bluetooth Name you can change it here:
 ---
 ---
 Look at Luci_Keeb/Luci_Keeb.dtsi to change which pins you are connecting each row to (row-gpios)
-Check the 'Luci_Keeb_left.overlay' and 'Luci_Keeb_right.overlay' to set the col-gpios for the sides respectivaly
+Check the:
+ - 'Luci_Keeb_left.overlay'
+ - 'Luci_Keeb_right.overlay'
+to set the col-gpios for the sides respectivaly
 ---
 ---
 ---
