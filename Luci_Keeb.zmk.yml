@@ -1,0 +1,11 @@
+file_format: "1"
+id: Luci_Keeb
+name: Luci_Keeb
+type: shield
+url: tmp
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - Luci_Keeb_left
+  - Luci_Keeb_right

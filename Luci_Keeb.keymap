@@ -1,0 +1,104 @@
+// Usefull Links
+//  Codes:       https://zmk.dev/docs/codes/
+//  Hold-Tap:    https://zmk.dev/docs/behaviors/hold-tap/
+//  Tap-Dance:   https://zmk.dev/docs/behaviors/tap-dance/
+//  RGB:         https://zmk.dev/docs/behaviors/underglow/
+//  Power:       https://zmk.dev/docs/behaviors/power/
+
+
+
+
+
+//     --- Keymaps starts from here ---
+//==============================================================================================================================================================================
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>           // Standard keys
+#include <dt-bindings/zmk/bt.h>             // Bluetooth selection
+#include <dt-bindings/zmk/outputs.h>        // Output over usb or bluetooth
+
+
+
+
+
+//---Layers---------------------------------------------------------------------
+#define DEFAULT 0
+#define LOWER 1
+
+
+
+
+
+//==============================================================================================================================================================================
+/ {
+    behaviors {
+    //----------------------------------------------------------------------Default Layer Tap Dance
+        td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHFT>, <&kp CLCK>; // Shift, CapsLock
+
+            // Called on 'default_layer' where shift would be
+        };
+    };
+    
+    
+//______________________________________________________________________________________________________________________________________________________________________________
+    macros {
+    //----------------------------------------------------------------------
+        CrlAltDel: zed_em_kay_1 {
+            label = "Control_ALT_Delete";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT &kp LCTRL>
+                , <&macro_tap &kp DEL>
+                , <&macro_release &kp LALT &kp LCTRL>
+                ;
+        };
+//==============================================================================================================================================================================
+
+
+
+
+//==============================================================================================================================================================================
+        keymap {
+                compatible = "zmk,keymap";
+//______________________________________________________________________________________________________________________________________________________________________________
+                default_layer {     // Main QWERTY
+// -----------------------------------------------------------------------------------------
+// |  ESC |  1  |  2  |  3  |  4  |  5  |      |  6  |  7  |  8  |  9  | 10  |  =  |
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |      |  Y  |  U  |  I  |  O  |  P  | ENT |
+// |  td0 |  A  |  S  |  D  |  F  |  G  |      |  H  |  J  |  K  |  L  |  ;  |  '  |
+// | CTRL |  Z  |  X  |  C  |  V  |  B  |      |  N  |  M  |  ,  |  .  |  /  | td3 |
+//                    | DEL | LWR | SPC |      | SFT | LWR | BKS |
+                        bindings = <
+   &kp ESC   &kp N1 &kp N2  &kp N3  &kp N4    &kp N5            &kp N6    &kp N7    &kp N8    &kp N9  &kp N0   &kp EQUAL
+   &kp TAB   &kp Q  &kp W   &kp E   &kp R     &kp T             &kp Y     &kp U     &kp I     &kp O   &kp P    &kp RET
+   &td0      &kp A  &kp S   &kp D   &kp F     &kp G             &kp H     &kp J     &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LCTRL &kp Z  &kp X   &kp C   &kp V     &kp B             &kp N     &kp M     &kp COMMA &kp DOT &kp FSLH &kp LALT
+                            &kp DEL &mo LOWER &kp SPACE         &kp LSHFT &mo LOWER &kp BSPC
+                        >;
+                };
+                
+                
+//______________________________________________________________________________________________________________________________________________________________________________
+                LOWER {     // Numbers and Symbols
+// -----------------------------------------------------------------------------------------
+// | RST | TNS | TNS | TNS | TNS | BOOT |      | BOOT | TNS | TNS | TNS | TNS | RST |
+// | CLR | TNS | TNS | TNS | TNS | TNS  |      |  TNS | TNS | TNS | TNS | TNS | CLR |
+// | BT1 | TNS | TNS | TNS | TNS | TNS  |      |  TNS | TNS | TNS | TNS | TNS | BT1 |
+// | BT2 | TNS | TNS | TNS | TNS | TNS  |      |  TNS | TNS | TNS | TNS | TNS | BT2 |
+//                   | TNS | TNS | TNS  |      |  TNS | TNS | TNS |
+                        bindings = <
+   &sys_reset   &trans &trans &trans &trans &trans     &trans &trans &trans &trans &trans &sys_reset
+   &bt BT_CLR   &trans &trans &trans &trans &trans     &trans &trans &trans &trans &trans &bt BT_CLR
+   &bt BT_SEL 0 &trans &trans &trans &trans &trans     &trans &trans &trans &trans &trans &bt BT_SEL 0
+   &bt BT_SEL 1 &trans &trans &trans &trans &trans     &trans &trans &trans &trans &trans &bt BT_SEL 1
+                              &trans &trans &trans     &trans &trans &trans
+                        >;
+                };  
+        };
+//==============================================================================================================================================================================
+};
