@@ -1,4 +1,4 @@
-if SHIELD_MY_BOARD_LEFT
+if SHIELD_Luci_Keeb_LEFT
 
 config ZMK_KEYBOARD_NAME
     default "Luci_Keeb"
@@ -8,7 +8,7 @@ config ZMK_SPLIT_ROLE_CENTRAL
 
 endif
 
-if SHIELD_MY_BOARD_LEFT || SHIELD_MY_BOARD_RIGHT
+if SHIELD_Luci_Keeb_LEFT || SHIELD_Luci_Keeb_RIGHT
 
 config ZMK_SPLIT
     default y
