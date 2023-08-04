@@ -17,23 +17,23 @@ Check the 'Luci_Keeb_left.overlay' and 'Luci_Keeb_right.overlay' to set the col-
 
 
 
-The .keymap file has a basic setup for your first layer + an additional reset layer to:
-
-(https://zmk.dev/docs/behaviors/reset)
+The .keymap file has a basic setup for your first layer + an additional reset layer to: 
  - &sys_reset = Same as shorting the reset pin to gnd on the nano
  - &bootloader = Puts the nano into the bootloader for flashing
-
-(https://zmk.dev/docs/behaviors/bluetooth)
+ - (https://zmk.dev/docs/behaviors/reset)
+ 
  - &bt BT_CLR = Clears the bluetooth connections, usefull to trouble shoot if it wont connect
  - &bt BT_SEL 0 = Select the bluetooth profile '0', can store upto 5 profiles '0,1,2,3,4'
+ - (https://zmk.dev/docs/behaviors/bluetooth)
 
-(https://zmk.dev/docs/behaviors/layers)
  - &mo LOWER = Momentarly moves to the 'LOWER' layer defined in the keymap
+ - (https://zmk.dev/docs/behaviors/layers)
 
 
 
 Added Examples of aditional behaviours:
-(https://zmk.dev/docs/behaviors/tap-dance)
  - &td0 = Calls the 'Tap Dance' behaviour defined above the keymap for double taps
-(https://zmk.dev/docs/behaviors/macros)
+ - (https://zmk.dev/docs/behaviors/tap-dance)
+
  - &CrlAltDel = Macro to press the 3 keys togeather
+ - (https://zmk.dev/docs/behaviors/macros)
