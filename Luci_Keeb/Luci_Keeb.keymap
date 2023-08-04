@@ -57,6 +57,7 @@
                 , <&macro_release &kp LALT &kp LCTRL>
                 ;
         };
+    };
 //==============================================================================================================================================================================
 
 
@@ -92,7 +93,7 @@
 // | BT2 | TNS | TNS | TNS | TNS | TNS  |      |  TNS | TNS | TNS | TNS | TNS | BT2 |
 //                   | TNS | TNS | TNS  |      |  TNS | TNS | TNS |
                         bindings = <
-   &sys_reset   &trans &trans &trans &trans &bootloader          &bootloader &trans &trans &trans &trans &sys_reset
+   &reset       &trans &trans &trans &trans &bootloader          &bootloader &trans &trans &trans &trans &reset
    &bt BT_CLR   &trans &trans &trans &trans &trans               &trans      &trans &trans &trans &trans &bt BT_CLR
    &bt BT_SEL 0 &trans &trans &trans &trans &trans               &trans      &trans &trans &trans &trans &bt BT_SEL 0
    &bt BT_SEL 1 &trans &trans &trans &trans &trans               &trans      &trans &trans &trans &trans &bt BT_SEL 1
