@@ -1,7 +1,7 @@
 Download the folder 'Luci_Keeb' and copy it to /zmk-config/app/boards/shields
 This will allow you to build the keyboard with the command from the 'app' directory:
- - west build -b nice_nano -- -DSHIELD=Luci_Keeb_right
- - west build -b nice_nano -- -DSHIELD=Luci_Keeb_left
+ - west build -p -d build/left -b nice_nano -- -DSHIELD=Luci_Keeb_left
+ - west build -p -d build/right -b nice_nano -- -DSHIELD=Luci_Keeb_right
 Instructions: https://zmk.dev/docs/development/build-flash
 To change the name of the build directory, each file and reference to Luci_Keeb will need to be changed
 ---
@@ -13,12 +13,16 @@ To change the Bluetooth Name you can change it here:
 ---
 ---
 Look at Luci_Keeb/Luci_Keeb.dtsi to change which pins you are connecting each row to (row-gpios)
-Check the 'Luci_Keeb_left.overlay' and 'Luci_Keeb_right.overlay' to set the col-gpios for the sides respectivaly
+Check the:
+ - 'Luci_Keeb_left.overlay'
+ - 'Luci_Keeb_right.overlay'
+to set the col-gpios for the sides respectivaly
 ---
 ---
 ---
 The .keymap file has a basic setup for your first layer + an additional reset layer to: 
- - &sys_reset = Same as shorting the reset pin to gnd on the nano
+ - &reset = Same as shorting the reset pin to gnd on the nano 
+ - !!! for me it was '&reset' as I have an old repo, you may need to replace it with '&sys_reset' !!!
  - &bootloader = Puts the nano into the bootloader for flashing
  - (https://zmk.dev/docs/behaviors/reset)
 --- 
